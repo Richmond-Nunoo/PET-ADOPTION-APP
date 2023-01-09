@@ -11,10 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Pet Adoption UI',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const LandingPage());
+      debugShowCheckedModeBanner: false,
+      title: 'Pet Adoption UI',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const LandingPage(),
+    );
   }
 }
