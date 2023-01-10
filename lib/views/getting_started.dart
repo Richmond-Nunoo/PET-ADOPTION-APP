@@ -49,16 +49,8 @@ class _LandingPageReadmeState extends State<LandingPageReadme> {
                   ],
                 ),
               ),
-              Column(
-                children: const [
-                  Text("Second Page"),
-                ],
-              ),
-              Column(
-                children: const [
-                  Text("Third Page"),
-                ],
-              )
+              const Text("Second Page"),
+              const Text("Third Page")
             ],
           ),
         ),
