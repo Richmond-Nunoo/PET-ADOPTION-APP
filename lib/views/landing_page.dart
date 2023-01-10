@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_adoption_app_ui/views/landing_page_read.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class LandingPage extends StatefulWidget {
@@ -9,19 +10,8 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  final _controller = PageController();
-  int activeIndex = 0;
-  final activeColor = Colors.orange;
-  final inActiveColor = Colors.grey;
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).textTheme;
     return Scaffold(
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20, bottom: 15),
@@ -105,96 +95,11 @@ class _LandingPageState extends State<LandingPage> {
           SliverToBoxAdapter(
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: [
-                const SizedBox(
+              children:const [
+                 SizedBox(
                   height: 20,
                 ),
-                SizedBox(
-                  height: 170,
-                  child: PageView(
-                    onPageChanged: (value) {
-                      setState(() {
-                        activeIndex = value;
-                      });
-                    },
-                    controller: _controller,
-                    physics: const BouncingScrollPhysics(),
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 80, vertical: 0),
-                        child: Column(
-                          children: [
-                            Text(
-                              "Ready to make a new friend?",
-                              textAlign: TextAlign.center,
-                              style: theme.titleLarge,
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              "We have the cutest pets available, all waiting to make you their friend",
-                              textAlign: TextAlign.center,
-                              style: theme.bodySmall,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Column(
-                        children: const [
-                          Text("Second Page"),
-                        ],
-                      ),
-                      Column(
-                        children: const [
-                          Text("Third Page"),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 5,
-                      width: 15,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                        color: activeIndex == 0 ? activeColor : inActiveColor,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    Container(
-                      height: 5,
-                      width: 15,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                        color: activeIndex == 1 ? activeColor : inActiveColor,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    Container(
-                      height: 5,
-                      width: 15,
-                      decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                        color: activeIndex == 2 ? activeColor : inActiveColor,
-                      ),
-                    ),
-                  ],
-                )
+                LandingPageReadme()
               ],
             ),
           )
