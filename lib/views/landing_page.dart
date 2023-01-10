@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_adoption_app_ui/views/landing_page_read.dart';
+import 'package:pet_adoption_app_ui/views/getting_started.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class LandingPage extends StatefulWidget {
@@ -94,9 +94,8 @@ class _LandingPageState extends State<LandingPage> {
           ),
           SliverToBoxAdapter(
             child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children:const [
-                 SizedBox(
+              children: const [
+                SizedBox(
                   height: 20,
                 ),
                 LandingPageReadme()
