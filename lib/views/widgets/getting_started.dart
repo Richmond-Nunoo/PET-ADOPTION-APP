@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class LandingPageReadme extends StatefulWidget {
   const LandingPageReadme({super.key});
@@ -18,6 +17,9 @@ class _LandingPageReadmeState extends State<LandingPageReadme> {
     final theme = Theme.of(context).textTheme;
     return Column(
       children: [
+        const SizedBox(
+          height: 20,
+        ),
         SizedBox(
           height: 170,
           child: PageView(
@@ -27,6 +29,7 @@ class _LandingPageReadmeState extends State<LandingPageReadme> {
               });
             },
             physics: const BouncingScrollPhysics(),
+            clipBehavior: Clip.none,
             children: [
               Padding(
                 padding:
@@ -49,8 +52,12 @@ class _LandingPageReadmeState extends State<LandingPageReadme> {
                   ],
                 ),
               ),
-              const Text("Second Page"),
-              const Text("Third Page")
+              const Center(
+                child: Text("Second Page"),
+              ),
+              const Center(
+                child: Text("Third Page"),
+              )
             ],
           ),
         ),

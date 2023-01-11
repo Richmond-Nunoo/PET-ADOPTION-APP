@@ -1,33 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:pet_adoption_app_ui/views/getting_started.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:pet_adoption_app_ui/views/bottom_tabs.dart';
+import 'package:pet_adoption_app_ui/views/widgets/getting_started.dart';
 
-class LandingPage extends StatefulWidget {
+class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
 
-  @override
-  State<LandingPage> createState() => _LandingPageState();
-}
-
-class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20, bottom: 15),
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.all(
-              Radius.circular(12),
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const BottomTab(),
+              ),
+            );
+          },
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.all(
+                Radius.circular(12),
+              ),
             ),
-          ),
-          height: 50,
-          width: double.infinity,
-          child: const Center(
-            child: Text(
-              "Get Started",
-              style: TextStyle(color: Colors.white, fontSize: 16),
+            height: 50,
+            width: double.infinity,
+            child: const Center(
+              child: Text(
+                "Get Started",
+                style: TextStyle(color: Colors.white, fontSize: 16),
+              ),
             ),
           ),
         ),
@@ -39,7 +44,7 @@ class _LandingPageState extends State<LandingPage> {
             expandedHeight: 370,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                "assets/dog111.jpg",
+                "assets/images/dog1b.jpg",
                 fit: BoxFit.cover,
               ),
             ),
@@ -79,11 +84,10 @@ class _LandingPageState extends State<LandingPage> {
                             child: CircleAvatar(
                               backgroundColor: Colors.purple,
                               child: Image.asset(
-                                "assets/paw1.png",
+                                "assets/images/paw1.png",
                                 height: 40,
                                 color: Colors.white,
                               ),
-                              // backgroundImage: AssetImage("assets/paw.png"),
                             ),
                           ),
                         ),
@@ -92,15 +96,8 @@ class _LandingPageState extends State<LandingPage> {
               ),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Column(
-              children: const [
-                SizedBox(
-                  height: 20,
-                ),
-                LandingPageReadme()
-              ],
-            ),
+          const SliverToBoxAdapter(
+            child: LandingPageReadme(),
           )
         ],
       ),
