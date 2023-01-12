@@ -25,7 +25,8 @@ class _UserHomePageState extends State<UserHomePage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
     return Scaffold(
-      backgroundColor: Colors.grey.shade100,
+      backgroundColor: Colors.black.withOpacity(0.5),
+      // backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         toolbarHeight: 80,
         leading: const Icon(
@@ -129,52 +130,136 @@ class _UserHomePageState extends State<UserHomePage> {
                       });
                     },
                     child: AnimatedContainer(
-                        duration: const Duration(milliseconds: 500),
-                        height: 55,
-                        width: 110,
-                        decoration: BoxDecoration(
+                      duration: const Duration(milliseconds: 500),
+                      height: 55,
+                      width: 110,
+                      decoration: BoxDecoration(
                           color: sectedCategory == index
                               ? Colors.red
                               : Colors.white,
-                          borderRadius: sectedCategory == index
-                              ? BorderRadius.circular(25)
-                              : BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(25)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            CircleAvatar(
+                              backgroundImage: AssetImage(images[index]),
+                            ),
+                            Text(
+                              categories[index],
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  overflow: TextOverflow.ellipsis,
+                                  fontWeight: FontWeight.w500,
+                                  color: sectedCategory == index
+                                      ? Colors.white
+                                      : Colors.black),
+                            ),
+                          ],
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              CircleAvatar(
-                                backgroundImage: AssetImage(images[index]),
-                              ),
-                              Text(
-                                categories[index],
-                                style: TextStyle(
-                                    fontSize: 13,
-                                    overflow: TextOverflow.ellipsis,
-                                    fontWeight: FontWeight.w500,
-                                    color: sectedCategory == index
-                                        ? Colors.white
-                                        : Colors.black),
-                              ),
-                            ],
-                          ),
-                        )
-                        // Center(
-                        //   child: Text(
-                        //     categories[index],
-                        //     style: TextStyle(
-                        //         fontWeight: FontWeight.w500,
-                        //         color: sectedCategory == index
-                        //             ? Colors.white
-                        //             : Colors.black),
-                        //   ),
-                        // ),
-                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Stack(
+              children: [
+                Container(
+                  height: 190,
+                  width: 210,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: 100,
+                              child: Text(
+                                "Gearge",
+                                style: theme.bodyMedium,
+                              ),
+                            ),
+                            Container(
+                              height: 20,
+                              width: 45,
+                              decoration: BoxDecoration(
+                                  color: Colors.red.withOpacity(0.4),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10))),
+                              child: Center(
+                                child: Text(
+                                  "2 YRS",
+                                  style: theme.bodySmall,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 150,
+                              child: Text(
+                                "Verojlsa duasf",
+                                style: theme.bodySmall,
+                                overflow: TextOverflow.clip,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    height: 130,
+                    width: 220,
+                    decoration: const BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 18,
+                  right: 18,
+                  child: InkWell(
+                    onTap: () {},
+                    child: const CircleAvatar(
+                      radius: 18,
+                      backgroundColor: Colors.white,
+                      child: Icon(
+                        Icons.favorite_border_outlined,
+                        color: Colors.purple,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           )
         ],
