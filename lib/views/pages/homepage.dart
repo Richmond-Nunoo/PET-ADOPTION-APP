@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pet_adoption_app_ui/views/pages/category.dart';
 
 class UserHomePage extends StatefulWidget {
   const UserHomePage({super.key});
@@ -109,14 +108,7 @@ class _UserHomePageState extends State<UserHomePage> {
                           setState(() {
                             sectedCategory = index;
                           });
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => CategoriesPage(
-                                categorie: categories[index],
-                              ),
-                            ),
-                          );
+                         
                         },
                         child: AnimatedContainer(
                           margin: const EdgeInsets.all(7),
@@ -145,7 +137,7 @@ class _UserHomePageState extends State<UserHomePage> {
                           ),
                         ),
                       );
-                    }),
+                    },),
               ),
               //      Text(images[sectedCategory])
 
