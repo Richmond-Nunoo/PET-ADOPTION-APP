@@ -44,7 +44,7 @@ class LandingPage extends StatelessWidget {
             expandedHeight: 370,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                "assets/images/dog1b.jpg",
+                "assets/images/dog1bb.jpg",
                 fit: BoxFit.cover,
               ),
             ),

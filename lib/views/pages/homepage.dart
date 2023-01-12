@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pet_adoption_app_ui/views/model/pets_model.dart';
+import 'package:pet_adoption_app_ui/views/widgets/top_pets_card.dart';
 
 class UserHomePage extends StatefulWidget {
   const UserHomePage({super.key});
@@ -25,8 +27,7 @@ class _UserHomePageState extends State<UserHomePage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
     return Scaffold(
-      backgroundColor: Colors.black.withOpacity(0.5),
-      // backgroundColor: Colors.grey.shade100,
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         toolbarHeight: 80,
         leading: const Icon(
@@ -44,10 +45,10 @@ class _UserHomePageState extends State<UserHomePage> {
                 size: 14,
               )),
               TextSpan(
-                  text: " Accra, ",
+                  text: " Lagos, ",
                   style:
                       theme.bodySmall!.copyWith(fontWeight: FontWeight.bold)),
-              const TextSpan(text: "Ghana"),
+              const TextSpan(text: "Nigeria"),
             ],
           ),
         ),
@@ -166,101 +167,108 @@ class _UserHomePageState extends State<UserHomePage> {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 15,
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Stack(
-              children: [
-                Container(
-                  height: 190,
-                  width: 210,
-                  decoration: const BoxDecoration(
+          SizedBox(
+            height: 200,
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              child: ListView.separated(
+                physics: const BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: topPets.length,
+                itemBuilder: (context, index) {
+                  final myPetDetails = topPets[index];
+                  return TopPetsCard(
+                    petName: myPetDetails.petName,
+                    petBreed: myPetDetails.petBreed,
+                    year: myPetDetails.age.toString(),
+                    imageUrl: myPetDetails.petImage,
+                    iD: myPetDetails.id,
+                    likes: myPetDetails.likes,
+                  );
+                },
+                separatorBuilder: (BuildContext context, int index) {
+                  return const SizedBox(
+                    width: 10,
+                  );
+                },
+              ),
+            ),
+          ),
+          Text(
+            "Newest pets",
+            style: theme.bodyLarge,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Stack(
+            children: [
+              Container(
+                height: 140,
+                width: double.infinity,
+                decoration: const BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 120,
+                      width: 140,
+                      decoration: const BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
                     ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
+                    const SizedBox(
+                      width: 9,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBox(
-                              width: 100,
-                              child: Text(
-                                "Gearge",
-                                style: theme.bodyMedium,
-                              ),
-                            ),
-                            Container(
-                              height: 20,
-                              width: 45,
-                              decoration: BoxDecoration(
-                                  color: Colors.red.withOpacity(0.4),
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(10))),
-                              child: Center(
-                                child: Text(
-                                  "2 YRS",
-                                  style: theme.bodySmall,
-                                ),
-                              ),
-                            )
-                          ],
+                        SizedBox(
+                          height: 5,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: 150,
-                              child: Text(
-                                "Verojlsa duasf",
-                                style: theme.bodySmall,
-                                overflow: TextOverflow.clip,
-                              ),
-                            ),
-                          ],
+                        Text("Beethoven"),
+                        SizedBox(
+                          height: 5,
                         ),
+                        Text("Beethoven"),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          height: 20,
+                          width: 45,
+                          decoration: BoxDecoration(
+                              color: Colors.red.withOpacity(0.2),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(10))),
+                          child: Center(
+                            child: Text(
+                              "21 YRS",
+                              style:
+                                  theme.bodySmall!.copyWith(color: Colors.red),
+                            ),
+                          ),
+                        )
                       ],
                     ),
-                  ),
+                    Spacer(),
+                    CircleAvatar(
+                      child: Icon(Icons.favorite_outline),
+                    )
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                    height: 130,
-                    width: 190,
-                    decoration: const BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 18,
-                  right: 18,
-                  child: InkWell(
-                    onTap: () {},
-                    child: const CircleAvatar(
-                      radius: 18,
-                      backgroundColor: Colors.white,
-                      child: Icon(
-                        Icons.favorite_border_outlined,
-                        color: Colors.purple,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           )
         ],
       ),

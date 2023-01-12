@@ -18,9 +18,9 @@ class PetsModel {
 List<PetsModel> topPets = [
   PetsModel(
     petName: "George",
-    petImage: "assets/images/dog5.jpg",
+    petImage: "assets/images/maltese.jpg",
     age: 4,
-    petBreed: "Golden Retriever",
+    petBreed: "	Maltese",
     likes: [],
     id: 1,
   ),
@@ -41,7 +41,6 @@ List<PetsModel> topPets = [
     id: 2,
   ),
 ];
-
 
 List<PetsModel> newPets = [
   PetsModel(
