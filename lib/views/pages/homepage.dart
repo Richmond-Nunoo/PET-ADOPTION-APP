@@ -235,7 +235,7 @@ class _UserHomePageState extends State<UserHomePage> {
                   padding: const EdgeInsets.all(10.0),
                   child: Container(
                     height: 130,
-                    width: 220,
+                    width: 190,
                     decoration: const BoxDecoration(
                       color: Colors.blue,
                       borderRadius: BorderRadius.all(
