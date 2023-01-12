@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_adoption_app_ui/views/model/pets_model.dart';
+import 'package:pet_adoption_app_ui/views/widgets/new_pets_card.dart';
 import 'package:pet_adoption_app_ui/views/widgets/top_pets_card.dart';
 
 class UserHomePage extends StatefulWidget {
@@ -169,11 +170,11 @@ class _UserHomePageState extends State<UserHomePage> {
           const SizedBox(
             height: 15,
           ),
-          SizedBox(
-            height: 200,
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
+          SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            child: SizedBox(
+              height: 200,
               child: ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
@@ -198,6 +199,9 @@ class _UserHomePageState extends State<UserHomePage> {
               ),
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
           Text(
             "Newest pets",
             style: theme.bodyLarge,
@@ -205,71 +209,27 @@ class _UserHomePageState extends State<UserHomePage> {
           const SizedBox(
             height: 10,
           ),
-          Stack(
-            children: [
-              Container(
-                height: 140,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: 120,
-                      width: 140,
-                      decoration: const BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.all(Radius.circular(15))),
-                    ),
-                    const SizedBox(
-                      width: 9,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text("Beethoven"),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text("Beethoven"),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          height: 20,
-                          width: 45,
-                          decoration: BoxDecoration(
-                              color: Colors.red.withOpacity(0.2),
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(10))),
-                          child: Center(
-                            child: Text(
-                              "21 YRS",
-                              style:
-                                  theme.bodySmall!.copyWith(color: Colors.red),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                    Spacer(),
-                    CircleAvatar(
-                      child: Icon(Icons.favorite_outline),
-                    )
-                  ],
-                ),
-              ),
-            ],
-          )
+          ListView.separated(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: newPets.length,
+            itemBuilder: (context, index) {
+              final myPetDetails = newPets[index];
+              return NewPetsCard(
+                petName: myPetDetails.petName,
+                petBreed: myPetDetails.petBreed,
+                year: myPetDetails.age.toString(),
+                imageUrl: myPetDetails.petImage,
+                iD: myPetDetails.id,
+                likes: myPetDetails.likes,
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return const SizedBox(
+                height: 10,
+              );
+            },
+          ),
         ],
       ),
     );

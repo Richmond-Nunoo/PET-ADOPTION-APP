@@ -38,18 +38,22 @@ List<PetsModel> topPets = [
     age: 13,
     petBreed: "Siberian Husky",
     likes: [],
-    id: 2,
+    id: 3,
   ),
 ];
+
+////New Pets
+/////New Pets
+/////New Pets
 
 List<PetsModel> newPets = [
   PetsModel(
     petName: "Chris",
-    petImage: "assets/images/bulldog.jpg",
+    petImage: "assets/images/cava.jpg",
     age: 2,
-    petBreed: "Bulldog",
+    petBreed: "Cavalier King Charles Spaniel",
     likes: [],
-    id: 1,
+    id: 4,
   ),
   PetsModel(
     petName: "Anthony",
@@ -57,7 +61,7 @@ List<PetsModel> newPets = [
     age: 5,
     petBreed: "Rottweiler",
     likes: [],
-    id: 2,
+    id: 5,
   ),
   PetsModel(
     petName: "Lucifer",
@@ -65,6 +69,6 @@ List<PetsModel> newPets = [
     age: 13,
     petBreed: "Basset Hound",
     likes: [],
-    id: 2,
+    id: 6,
   ),
 ];
