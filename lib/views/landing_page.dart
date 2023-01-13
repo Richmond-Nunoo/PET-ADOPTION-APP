@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_adoption_app_ui/views/bottom_tabs.dart';
 import 'package:pet_adoption_app_ui/views/widgets/getting_started.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -11,13 +12,15 @@ class LandingPage extends StatelessWidget {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20, bottom: 15),
         child: InkWell(
-          onTap: () {
-            Navigator.push(
+          onTap: () async {
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(
                 builder: (context) => const BottomTab(),
               ),
             );
+            final pref = await SharedPreferences.getInstance();
+            pref.setBool("showHome", true);
           },
           child: Container(
             decoration: const BoxDecoration(
