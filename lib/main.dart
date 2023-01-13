@@ -12,13 +12,13 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final bool? showHome;
-  const MyApp({super.key,  this.showHome});
+  const MyApp({super.key, this.showHome});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Pet Adoption UI',
+      title: 'Pet Adoption App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

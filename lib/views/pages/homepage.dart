@@ -30,7 +30,7 @@ class _UserHomePageState extends State<UserHomePage> {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
-        toolbarHeight: 80,
+        toolbarHeight: 70,
         leading: const Icon(
           Icons.menu_outlined,
           color: Colors.black,
@@ -69,11 +69,11 @@ class _UserHomePageState extends State<UserHomePage> {
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
         children: [
           Text(
             "Find a new friend",
-            style: theme.bodyLarge,
+            style: theme.titleMedium,
           ),
           const SizedBox(
             height: 10,
@@ -109,11 +109,11 @@ class _UserHomePageState extends State<UserHomePage> {
             ),
           ),
           const SizedBox(
-            height: 30,
+            height: 20,
           ),
           Text(
             "Pet Categories",
-            style: theme.bodyLarge,
+            style: theme.titleMedium,
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -204,7 +204,7 @@ class _UserHomePageState extends State<UserHomePage> {
           ),
           Text(
             "Newest pets",
-            style: theme.bodyLarge,
+            style: theme.titleMedium,
           ),
           const SizedBox(
             height: 10,

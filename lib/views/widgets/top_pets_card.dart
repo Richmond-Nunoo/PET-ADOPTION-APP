@@ -106,7 +106,6 @@ class _TopPetsCardState extends State<TopPetsCard> {
             child: InkWell(
               onTap: () {
                 setState(() {});
-
                 if (widget.likes.contains(widget.iD)) {
                   widget.likes.remove(widget.iD);
                 } else {
@@ -117,7 +116,7 @@ class _TopPetsCardState extends State<TopPetsCard> {
                 radius: 18,
                 backgroundColor: widget.likes.contains(widget.iD)
                     ? Colors.purple
-                    : Colors.white,
+                    : Colors.white.withOpacity(0.5),
                 child: widget.likes.contains(widget.iD)
                     ? const Icon(
                         Icons.favorite_sharp,

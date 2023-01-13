@@ -79,7 +79,7 @@ class _LandingPageReadmeState extends State<LandingPageReadme> {
             ),
             Container(
               height: 5,
-              width: 15,
+              width: activeIndex == 1 ? 15 : 10,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(
                   Radius.circular(10),
@@ -92,7 +92,7 @@ class _LandingPageReadmeState extends State<LandingPageReadme> {
             ),
             Container(
               height: 5,
-              width: 15,
+              width: activeIndex == 2 ? 15 : 10,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(
                   Radius.circular(10),
