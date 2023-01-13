@@ -12,6 +12,31 @@ This project is an implementation of a Design i found on [Dribbble](https://drib
   <img src="https://github.com/Richmond-Nunoo/PET-ADOPTION-UI/blob/main/assets/images/ca.jpg" width="90%"/>
 </p>
 
+## To clone this project,
+open your terminal or cmd
+
+```
+cd folder/to/clone-into/
+```
+
+```
+git clone https://github.com/Richmond-Nunoo/PET-ADOPTION-APP.git
+```
+
+Then
+locate the project on your system and open with android studio or Vscode or intellij IDE.
+
+To Run:
+```
+C:\path\to\project> flutter pub get
+
+```
+And then
+
+```
+C:\path\to\project> flutter run
+
+```
 
 # Prerequisites
 * Android Studio/Vscode/Intellij IDE
