@@ -1,5 +1,5 @@
 # pet_adoption_app
-This project is an implementation of a Design i found on [Dribbble](https://dribbble.com/shots/16092508-Pet-Adoption-App), by [Emmanuel Edokpa](https://dribbble.com/maneel),
+This project is an implementation of a Design i found on [Dribbble](https://dribbble.com/shots/16092508-Pet-Adoption-App), by [Emmanuel Edokpa](https://dribbble.com/maneel).
 
 ## SCREENSHOTS
 <p style="float: center;">
